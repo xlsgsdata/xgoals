@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>XGoals</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+		
+	<body onload="loadingStandings()">
+	
+		<div class="container">
+			
+			<!-- <iframe id="iframe" src="header.html" frameborder="0"></iframe> -->
+			
+			<!-- header and nav -->
+			<div class="header_tag">
+				<div class="header_content">
+					<div class="header_left">
+						<img class="toplogo" src="pics/logo.png"></img>
+						<img class="toplogo2" src="pics/logo2.png"></img>
+					</div>			
+					<div class="header_right">
+						<ul id="menu">
+							<li><a id="a_predictions" href="index.html" target="_top">Predictions</a></li>
+							<li><a id="a_stats" href="stats.html" target="_top">Statistics</a></li>
+							<li><a id="a_standings" href="standings.html" target="_top">Standings</a></li>	
+							<li><a id="a_results"  href="results.html" target="_top">Results</a></li>								
+						</ul>
+					</div>
+				</div>
+			</div>		
+			
+			<!-- ad banner -->
+			<div class="ad">
+				<a href="http://www.google.com" target="_blank"><img class="ver" src="pics/ad.png"></a>
+			</div>
+			
+			<!-- main content -->
+			<div class="main">
+				<div class="main_head">
+					<div class="leaguediv">
+						<img src="countries/es.png" id="country">
+						<select id="league" onchange="updateLeague()">
+						</select>
+					</div>
+					<div class="seasondiv">
+						<select id="season" onchange="refreshPage()">
+						</select>
+					</div>
+				</div>	
+				<br>
+				
+				<!-- legend -->
+				<div class="stand_legend">
+					<div class="stand_labels">
+						<div class="label"><label>W</label><span class="first">TEAM WINS</span></div>							
+						<div class="label"><label>D</label><span>TEAM DRAWS</span></div>	
+						<div class="label"><label>L</label><span>TEAM LOSES</span></div>	
+						<div class="label"><label>GF</label><span>GOALS SCORED</span></div>	
+						<div class="label"><label>GA</label><span>GOALS ALLOWED</span></div>	
+						<div class="label"><label>GD</label><span>GOALS DIFFERENCE</span></div>	
+						<div class="label"><label>P</label><span>GAMES PLAYED</span></div>	
+						<div class="label"><label>PPG</label><span>POINTS PER GAME</span></div>	
+						<div class="label"><label>PTS</label><span class="last">LEAGUE POINTS</span></div>	
+					</div>
+				</div>
+				
+				<!-- standings table -->
+				<div class="stand_table">	
+					<table id="stand">
+					<thead>
+					<tr>
+					<th rowspan=2 colspan=2 class="teamth">TEAM</th>
+					<th colspan=6>HOME</th>
+					<th colspan=6>AWAY</th>
+					<th colspan=10>TOTAL</th>									
+					</tr>
+					<tr>
+					<td class="subheader">P</td>
+					<td class="subheader">W</td>
+					<td class="subheader">D</td>
+					<td class="subheader">L</td>
+					<td class="subheader">GF</td>
+					<td class="subheader">GA</td>
+
+					<td class="subheader">P</td>
+					<td class="subheader">W</td>
+					<td class="subheader">D</td>
+					<td class="subheader">L</td>
+					<td class="subheader">GF</td>
+					<td class="subheader">GA</td>
+					
+					<td class="subheader">P</td>
+					<td class="subheader">W</td>
+					<td class="subheader">D</td>
+					<td class="subheader">L</td>
+					<td class="subheader">GF</td>
+					<td class="subheader">GA</td>
+					<td class="subheader">GD</td>
+					<td class="subheader">PPG</td>					
+					<td class="subheader">PTS</td>
+					<td class="subheader">Place</td>
+					</tr>
+					</thead>
+					<tbody>
+					</tbody>
+					</table>
+					<div id="msg"></div>						
+				</div>		
+			</div>
+			
+			<!-- <iframe src="links.html" frameborder="0"></iframe>	-->
+			<div class="pages">
+				<ul>
+					<li><a href="index.html" target="_top">PREDICTIONS</a></li>
+					<li><a href="stats.html" target="_top">STATISTICS</a></li>
+					<li><a href="standings.html" target="_top">STANDINGS</a></li>	
+					<li><a href="results.html" target="_top">RESULTS</a></li>								
+				</ul>
+			</div>
+			
+			<!-- <iframe class="iframe_footer" src="footer.html" frameborder="0"></iframe>	-->	
+			<footer class="footer_tag">
+				<div class="footer_content">
+						<div class="footer_col">
+							<h3>Navigate</h3>
+							<ul>					
+								<li><a href="index.html" target="_top">Predictions</a></li>
+								<li><a href="stats.html" target="_top">Statistics</a></li>
+								<li><a href="standings.html" target="_top">Standings</a></li>	
+								<li><a href="results.html" target="_top">Results</a></li>	
+							</ul>
+							<br>
+							<h3>Options</h3>
+							<ul>
+								<li><a>Matches</a></li>
+								<li><a>Outcome</a></li>
+								<li><a>Goals</a></li>	
+								<li><a>Cards</a></li>	
+							</ul>
+						</div>
+						
+						<div class="footer_col">
+							<h3>Leagues</h3>
+							<ul>
+								<li>SPAIN PRIMERA DIVISION</li>
+								<li>ENGLAND PREMIER LEAGUE</li>
+								<li>GERMANY BUNDESLIGA</li>
+								<li>ITALY SERIE A</li>
+								<li>FRANCE LIGUE 1</li>
+								<li>NETHERLANDS EREDIVISIE</li>
+								<li>GREECE SUPER LEAGUE</li>
+								<li>PORTUGAL PRIMEIRA LIGA</li>
+								<li>BELGIUM FIRST DIVISION A</li>
+								<li>CZECH REPUBLIC DIVISION 1</li>						
+								<li>DENMARK SUPERLIGAEN</li>
+								<li>POLAND EKSTRAKLASA</li>
+								<li>SWEDEN ALLSVENSKAN</li>
+								<li>TURKEY SUPERLIG</li>
+							</ul>
+						</div>
+						
+						<div class="footer_col">
+							<h3>Other</h3>
+							<ul>
+								<li><a>About</a></li>
+								<li><a>Contact</a></li>
+								<li><a>Privacy</a></li>	
+							</ul>	
+							<br>
+							<h3>Social</h3>
+							<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+							<a href="#" class="fa fa-facebook"></a>
+							<a href="#" class="fa fa-twitter"></a>
+							<a href="#" class="fa fa-google"></a>
+							<a href="#" class="fa fa-linkedin"></a>
+							<a href="#" class="fa fa-youtube"></a>
+							<a href="#" class="fa fa-instagram"></a>
+						</div>
+				</div>
+					
+				<div class="footer_content">
+						<div class="footer_last">
+							<p>Football Predictions Pro © 2022</p>
+						</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+	<script src="script.js" type="text/javascript"></script>
+ </html>
