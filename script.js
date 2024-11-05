@@ -4,6 +4,7 @@ google.charts.setOnLoadCallback(showOutcomeChart);
 function loadingPredictions () {
 	document.getElementById('a_predictions').style.color = 'red';
 	var next = localStorage.getItem("next");
+	if (!next) ( var next = 5; )
 	document.getElementById("next").value = next;
 	initializeLeagues();
 	initializePredictionsSeason();
