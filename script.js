@@ -64,7 +64,8 @@ function initializeSeasons() {
 		"<option>2020-2021</option>"+
 		"<option>2021-2022</option>"+
 		"<option>2022-2023</option>" +
-		"<option>2023-2024</option>";
+		"<option>2023-2024</option>" +
+		"<option>2024-2025</option>";
 		
 		var season = localStorage.getItem('season');
 		if (season!==null) {
