@@ -4,9 +4,9 @@ google.charts.setOnLoadCallback(showOutcomeChart);
 function loadingPredictions () {
 	document.getElementById('a_predictions').style.color = 'red';
 	var next = localStorage.getItem("next");
-	if ( next == null ) (
+	if ( next == null ) {
 		document.getElementById("next").value = '5';
-	) else {
+	} else {
 		document.getElementById("next").value = next;
 	}
 	initializeLeagues();
