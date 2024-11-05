@@ -4,11 +4,11 @@ google.charts.setOnLoadCallback(showOutcomeChart);
 function loadingPredictions () {
 	document.getElementById('a_predictions').style.color = 'red';
 	var next = localStorage.getItem("next");
-	console.log(next);
 	if ( next == null ) (
-		next = '5';
-	)
-	document.getElementById("next").value = next;
+		document.getElementById("next").value = '5';
+	) else {
+		document.getElementById("next").value = next;
+	}
 	initializeLeagues();
 	initializePredictionsSeason();
 	filterData();	
