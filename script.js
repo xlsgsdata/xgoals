@@ -6,7 +6,7 @@ function loadingPredictions () {
 	var next = localStorage.getItem("next");
 	console.log(next);
 	if ( next == null ) (
-		next = 5;
+		next = '5';
 	)
 	document.getElementById("next").value = next;
 	initializeLeagues();
