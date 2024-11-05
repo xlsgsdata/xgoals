@@ -4,6 +4,7 @@ google.charts.setOnLoadCallback(showOutcomeChart);
 function loadingPredictions () {
 	document.getElementById('a_predictions').style.color = 'red';
 	var next = localStorage.getItem("next");
+	console.log(next);
 	if ( next == null ) (
 		var next = 5;
 	)
