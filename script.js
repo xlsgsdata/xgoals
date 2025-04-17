@@ -18,6 +18,19 @@ function getCurrentSeason() {
 	return current;
 }
 
+function showSeasonSummary (stotal,splayed,gf,ga) {
+	//var gfpg = gf / splayed; // not used yet in this version
+	//var gapg = ga / splayed; // not used yet in this version
+	document.getElementById("stotal").innerText = stotal;
+	document.getElementById("splayed").innerText = splayed;
+	document.getElementById("sscored").innerText = gf;
+	document.getElementById("sallowed").innerText = ga;
+	document.getElementById("stotal").style.background = '#ddd';
+	document.getElementById("splayed").style.background = '#ddd';
+	document.getElementById("sscored").style.background = '#ddd';
+	document.getElementById("sallowed").style.background = '#ddd';
+}
+
 function getLeague() {
 	let league = document.getElementById('league').value;
 	return league;
