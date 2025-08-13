@@ -95,29 +95,21 @@ function initializeLeagues() {
 	"<option>TURKEY SUPERLIG</option>";
 }
 
-function initializeSeasons() {  //CHANGE it to dynamic to add till current year!!
-		document.getElementById("season").innerHTML = 
-		"<option>2010-2011</option>"+
-		"<option>2011-2012</option>"+
-		"<option>2012-2013</option>"+
-		"<option>2013-2014</option>"+
-		"<option>2014-2015</option>"+
-		"<option>2015-2016</option>"+
-		"<option>2016-2017</option>"+
-		"<option>2017-2018</option>"+
-		"<option>2018-2019</option>"+
-		"<option>2019-2020</option>"+						
-		"<option>2020-2021</option>"+
-		"<option>2021-2022</option>"+
-		"<option>2022-2023</option>" +
-		"<option>2023-2024</option>" +
-		"<option>2024-2025</option>";
+function initializeSeasons() { 
+		let current = getCurrentSeason();
+		let year = current.substring(0,4);
+		var i = 0;
+		for (var y = 2010; y <= year; y++) {
+			var iopt = y + "-" + parseInt(y + 1);
+			document.getElementById("season").options[i] = new Option(iopt);
+			i++;
+		}
 		
 		var season = localStorage.getItem('season');
 		if (season!==null) {
 			document.getElementById("season").value = season;		
 		} else {
-			let current = getCurrentSeason();
 			document.getElementById("season").value = current;
 		}
 }
+
