@@ -25,12 +25,6 @@ const showResults = async () => {
 
 				var htg = result[9];
 				var atg = result[10];
-				var htyc = result[11];
-				var htrc = result[12];
-				var atyc = result[13];
-				var atrc = result[14];
-				var htcards = "";
-				var atcards = "";
 				total_games++;			
 				
 				if ( htg != null ) {
@@ -42,7 +36,7 @@ const showResults = async () => {
 					ga = ga + parseInt(atg);
 
 					//highlight winner
-					for (var c = 0; c < 8; c++){
+					for (var c = 0; c < 6; c++){
 						var cell = row.insertCell(c);			
 						if (c==2 && htg > atg) {
 							cell.style='font-weight:bold';
@@ -60,16 +54,6 @@ const showResults = async () => {
 					tbl.rows[r].cells[3].innerText = result[6];
 					tbl.rows[r].cells[4].innerText = result[7] + " - " + result[8];
 					tbl.rows[r].cells[5].innerHTML = '<b>' + result[9] + " - " + result[10] + '</b>';
-					
-					if (htyc > 0) { htcards = htcards + '<label class="yellow">' + result[11] + '</label>'; }
-					if (htrc > 0) { htcards = htcards + '<label class="red">' + result[12] + '</label>'; }
-					//if (htyc == 0 && htrc == 0) { htcards = '-'; }
-					tbl.rows[r].cells[6].innerHTML = htcards;	
-
-					if (atyc > 0) { atcards = atcards + '<label class="yellow">' + result[13] + '</label>'; }
-					if (atrc > 0) { atcards = atcards + '<label class="red">' + result[14] + '</label>'; }
-					//if (atyc == 0 && htrc == 0) { atcards = '-'; }			
-					tbl.rows[r].cells[7].innerHTML = atcards;
 				}
 			}
 		}
