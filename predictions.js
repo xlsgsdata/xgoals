@@ -414,24 +414,31 @@ function getOverUnder(htge,atge) {
 function showDetails (r) {
 	var ht = r.cells[2].innerText;
 	var at = r.cells[3].innerText;
-	document.getElementById("details").style.display = 'block';
-	document.getElementById("hometeam").innerText = ht;
-	document.getElementById("awayteam").innerText = at;
-	document.getElementById("homelogo").src = 'logos/' + ht + '.png';
-	document.getElementById("awaylogo").src = 'logos/' + at + '.png';	
 
 	var row = (r.rowIndex) - 2;
 	var htgexp = document.getElementById("htge"+row).innerText;
 	var atgexp = document.getElementById("atge"+row).innerText;
 
-	var htge = getDirectEstimate(htgexp,atgexp)[0];
-	var atge = getDirectEstimate(htgexp,atgexp)[1];
+	if (htgexp!='NaN' && atgexp!='NaN') { 
 	
-	if (htge!=null && atge!=null) {
-		showOutcome(htge,atge);
-		showOutcomeChart(htge,atge);	
-		showOverUnder(htge,atge);
-		showScoreline(htge,atge);
+		document.getElementById("details").style.display = 'block';
+		document.getElementById("hometeam").innerText = ht;
+		document.getElementById("awayteam").innerText = at;
+		document.getElementById("homelogo").src = 'logos/' + ht + '.png';
+		document.getElementById("awaylogo").src = 'logos/' + at + '.png';	
+
+		var htge = getDirectEstimate(htgexp,atgexp)[0];
+		var atge = getDirectEstimate(htgexp,atgexp)[1];
+		
+		if (htge!=null && atge!=null) {
+			showOutcome(htge,atge);
+			showOutcomeChart(htge,atge);	
+			showOverUnder(htge,atge);
+			showScoreline(htge,atge);
+		}
+
+	} else {
+		document.getElementById("details").style.display = 'none';
 	}
 }
 
@@ -609,3 +616,4 @@ function fact(x) {
     //total += poisson(i, landa);
 //}
 //console.log("Total sum is " + total);
+
