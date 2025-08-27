@@ -99,6 +99,7 @@ function initializeLeagues() {
 	
 	// select league
 	var league = localStorage.getItem('league');
+	console.log(league);
 	if (season!==null) {
 		document.getElementById("league").value = league;		
 	} else {
@@ -128,4 +129,5 @@ function initializeSeasons() {
 			document.getElementById("season").value = current;
 		}
 }
+
 
