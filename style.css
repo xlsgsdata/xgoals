@@ -86,6 +86,9 @@ iframe {
 }
 
 /* league --------------------------------------------------------------------------- */
+#country {
+	width:48px;
+}
 .leaguediv {
 	display:flex;
 	align-items: center;
@@ -610,4 +613,5 @@ td {
 .result_score {
 		width:100px;
 }
+
 
