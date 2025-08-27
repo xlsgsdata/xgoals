@@ -597,19 +597,17 @@ td {
 	border-radius:50px;
 }
 
+/* Results -------------------------------------------------------------------------------------------------------------- */
+.result_date {
+		width:80px;
+}
+.result_time {
+		width:50px;
+}
+.result_team {
+		width:180px;
+}
+.result_score {
+		width:100px;
+}
 
-/* Results ------------------------------------------------------------------------------------------------------------ */
-.short {
-	width:120px;
-}
-.yellow {
-	background:yellow;
-	margin:0 5px;
-	padding:1px 3px;
-}
-.red {
-	background:red;
-	color:white;
-	margin:0 5px;
-	padding:1px 3px;
-}
