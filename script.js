@@ -1,8 +1,11 @@
 function updateLeague() {
-	let league = document.getElementById('league').value;
-	if (league!="SPAIN PRIMERA DIVISION") {
-		document.getElementById('league').value = "SPAIN PRIMERA DIVISION";
-		alert ("NOT available yet. Only SPAIN PRIMERA DIVISION is available for now.")
+	let league = getLeague();
+	if (league=="SPAIN PRIMERA DIVISION" || league=="ENGLAND PREMIER LEAGUE" || league=="GERMANY BUNDESLIGA") {
+		refreshPage();
+	} else {
+		league = localStorage.getItem('league');
+		document.getElementById("league").value = league;		
+		alert ("Not available yet, but coming soon.");
 	}
 }
 
@@ -51,7 +54,9 @@ function getTodayDate () {
 
 const getData = async () => {
 	var league = getLeague();
-	var tab = 'SPAIN+PRIMERA+DIVISION';  // change later with league 
+	var tab = league.replace(" ","+");
+	console.log(tab);
+	//var tab = 'SPAIN+PRIMERA+DIVISION';  // change later with league 
 	var id = '1U_LkPMUp445zRjLdy2Dx1OEtwXlnzcOX7WmgDtwPTUU';
 	var url = 'https://opensheet.elk.sh/' + id + "/" + tab;
 	
@@ -71,9 +76,13 @@ const getData = async () => {
 }
 
 function refreshPage () {
-	//add to localStorage
-	var season = document.getElementById("season").value;
-	localStorage.setItem('season', season);
+	var league = getLeague();	
+	var season = getSeason();
+	
+	//add to localStorage	
+	localStorage.setItem('league', league);		
+	localStorage.setItem('season', season);	
+	
 	location.reload();
 }
 
@@ -84,22 +93,28 @@ function initializeLeagues() {
 	"<option>GERMANY BUNDESLIGA</option>"+
 	"<option>ITALY SERIE A</option>"+
 	"<option>FRANCE LIGUE 1</option>"+
+	"<option>PORTUGAL PRIMEIRA LIGA</option>"+	
 	"<option>NETHERLANDS EREDIVISIE</option>"+
-	"<option>GREECE SUPER LEAGUE</option>"+
-	"<option>PORTUGAL PRIMEIRA LIGA</option>"+
-	"<option>BELGIUM FIRST DIVISION A</option>"+
-	"<option>CZECH REPUBLIC DIVISION 1</option>"+						
-	"<option>DENMARK SUPERLIGAEN</option>"+
-	"<option>POLAND EKSTRAKLASA</option>"+
-	"<option>SWEDEN ALLSVENSKAN</option>"+
-	"<option>TURKEY SUPERLIG</option>";
+	"<option>UEFA CHAMPIONS LEAGUE</option>";
+	
+	// select league
+	var league = localStorage.getItem('league');
+	if (season!==null) {
+		document.getElementById("league").value = league;		
+	} else {
+		document.getElementById("league").value = "SPAIN PRIMERA DIVISION";
+		//localStorage.setItem('league', "SPAIN PRIMERA DIVISION");		
+	}
+		
+	// add flag
+	document.getElementById("country").src = "countries/" + league + ".png";
 }
 
 function initializeSeasons() { 
 		let current = getCurrentSeason();
 		let year = current.substring(0,4);
 		var i = 0;
-		for (var y = 2010; y <= year; y++) {
+		for (var y = 2023; y <= year; y++) {
 			var iopt = y + "-" + parseInt(y + 1);
 			document.getElementById("season").options[i] = new Option(iopt);
 			i++;
@@ -112,4 +127,3 @@ function initializeSeasons() {
 			document.getElementById("season").value = current;
 		}
 }
-
