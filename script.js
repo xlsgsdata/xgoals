@@ -102,8 +102,9 @@ function initializeLeagues() {
 	if (season!==null) {
 		document.getElementById("league").value = league;		
 	} else {
-		document.getElementById("league").value = "SPAIN PRIMERA DIVISION";
-		//localStorage.setItem('league', "SPAIN PRIMERA DIVISION");		
+		let league = "SPAIN PRIMERA DIVISION";
+		document.getElementById("league").value = league;
+		localStorage.setItem('league', league);		
 	}
 		
 	// add flag
@@ -127,3 +128,4 @@ function initializeSeasons() {
 			document.getElementById("season").value = current;
 		}
 }
+
