@@ -576,7 +576,7 @@ td {
 	width:120px;
 }
 .team {
-	width:180px;
+	width:190px;
 	font-weight:bold;
 	text-align:left !important;
 	border-left:0px !important;
@@ -613,5 +613,6 @@ td {
 .result_score {
 		width:100px;
 }
+
 
 
