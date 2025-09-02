@@ -18,7 +18,7 @@ function initializePredictionsSeason() {
 }
 
 function getPrevSeasons() {
-	let numberOfSeasons = 3; // number of seasons of data to include in the model 
+	let numberOfSeasons = 3; // number of seasons of data to include in the model (including current)
 	return numberOfSeasons;
 }
 
@@ -192,7 +192,7 @@ function createTable(teams,subset,histgf,histga) {
 		}
 		
 		// check if hp and ap , and also check if enough historic games
-		if ( hp+ap > 3 ) {
+		if ( hp+ap >= 3 ) {
 			var has = (hgf / hp) / histgf;
 			var hds = (hga / hp) / histga;
 			var aas = (agf / ap) / histga;
@@ -236,14 +236,14 @@ function showSummaryPredictions(table,histgf,histga) {
 
 			
 			//proposed 1X2 outcome and probability
-			if ( win > 0.5 ) {
+			if ( win > 0.45 ) {
 				var result = "1";
 				var prob = win;
 			} else if ( lose > 0.5 ) {
 				var result = "2";
 				var prob = lose;
 			} else {
-				if ( win+draw > 0.7 ) {
+				if ( win+draw > 0.65 ) {
 					var result = "1X";
 					var prob = win+draw;
 				} else if ( lose+draw > 0.7 ) {
@@ -272,10 +272,6 @@ function showSummaryPredictions(table,histgf,histga) {
 					if ( htge[i]*atge[j] > prob ) {
 						var prob = htge[i]*atge[j];
 						var score = i + "-" + j;
-					}	
-					if ( htge[i]*atge[j] < prob && htge[i]*atge[j] > prob2 ) {
-						var prob2 = htge[i]*atge[j];
-						var score2 = i + "-" + j;
 					}						
 				}
 			}
@@ -616,4 +612,5 @@ function fact(x) {
     //total += poisson(i, landa);
 //}
 //console.log("Total sum is " + total);
+
 
