@@ -417,7 +417,7 @@ function showDetails (r) {
 	var htgexp = document.getElementById("htge"+row).innerText;
 	var atgexp = document.getElementById("atge"+row).innerText;
 
-	if (htgexp!='NaN' && atgexp!='NaN' && bet1X2!='There is not sufficient historical data to make the prediction')) { 
+	if (htgexp!='NaN' && atgexp!='NaN' && bet1X2!='There is not sufficient historical data to make the prediction') { 
 	
 		document.getElementById("details").style.display = 'block';
 		
@@ -615,6 +615,7 @@ function fact(x) {
     //total += poisson(i, landa);
 //}
 //console.log("Total sum is " + total);
+
 
 
 
