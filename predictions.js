@@ -217,17 +217,18 @@ function showSummaryPredictions(table,histgf,histga) {
 		var htge = getGoalEstimates(table,histgf,histga,ht,at,r)[0];	
 		var atge = getGoalEstimates(table,histgf,histga,ht,at,r)[1];	
 
-		if (htge[0]==htge[0] && atge[0]==atge[0]) {
-			
+		//get outcome prediction based on goal expectancy 
+		var outcome = getOutcome(htge,atge);
+		var win = outcome[0];
+		var draw = outcome[1];
+		var lose = outcome[2];	
+
+		if (win!=0 && draw!=0 && lose!=0) {
+					
 			// add columns to table
 			for (var c = 4; c < 15; c++){
 				tbl.rows[r].insertCell(c);
-			}	
-			
-			var outcome = getOutcome(htge,atge);
-			var win = outcome[0];
-			var draw = outcome[1];
-			var lose = outcome[2];			
+			}
 				
 			//outcome (win, draw, lose) probabilities and odds
 			tbl.rows[r].cells[9].innerText = (win*100).toFixed(1) + "%";
@@ -410,14 +411,16 @@ function getOverUnder(htge,atge) {
 function showDetails (r) {
 	var ht = r.cells[2].innerText;
 	var at = r.cells[3].innerText;
+	var bet1X2 = r.cells[4].innerText; 
 
 	var row = (r.rowIndex) - 2;
 	var htgexp = document.getElementById("htge"+row).innerText;
 	var atgexp = document.getElementById("atge"+row).innerText;
 
-	if (htgexp!='NaN' && atgexp!='NaN') { 
+	if (htgexp!='NaN' && atgexp!='NaN' && bet1X2!='There is not sufficient historical data to make the prediction')) { 
 	
 		document.getElementById("details").style.display = 'block';
+		
 		document.getElementById("hometeam").innerText = ht;
 		document.getElementById("awayteam").innerText = at;
 		document.getElementById("homelogo").src = 'logos/' + ht + '.png';
@@ -612,5 +615,6 @@ function fact(x) {
     //total += poisson(i, landa);
 //}
 //console.log("Total sum is " + total);
+
 
 
