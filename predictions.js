@@ -240,14 +240,14 @@ function showSummaryPredictions(table,histgf,histga) {
 			if ( win > 0.45 ) {
 				var result = "1";
 				var prob = win;
-			} else if ( lose > 0.5 ) {
+			} else if ( lose > 0.45 ) {
 				var result = "2";
 				var prob = lose;
 			} else {
-				if ( win+draw > 0.65 ) {
+				if ( win+draw > 0.55 ) {
 					var result = "1X";
 					var prob = win+draw;
-				} else if ( lose+draw > 0.7 ) {
+				} else if ( lose+draw > 0.55 ) {
 					var result = "X2";
 					var prob = lose+draw;			
 				} else {
@@ -615,6 +615,7 @@ function fact(x) {
     //total += poisson(i, landa);
 //}
 //console.log("Total sum is " + total);
+
 
 
 
