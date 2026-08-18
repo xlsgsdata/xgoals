@@ -1,6 +1,6 @@
 function updateLeague() {
 	let league = getLeague();
-	if (league=="SPAIN PRIMERA DIVISION" || league=="ENGLAND PREMIER LEAGUE" || league=="GERMANY BUNDESLIGA") {
+	if (league=="SPAIN PRIMERA DIVISION" || league=="ENGLAND PREMIER LEAGUE" || league=="GERMANY BUNDESLIGA" || league=="ITALY SERIE A") {
 		refreshPage();
 	} else {
 		league = localStorage.getItem('league');
@@ -91,10 +91,10 @@ function initializeLeagues() {
 	"<option>SPAIN PRIMERA DIVISION</option>"+
 	"<option>ENGLAND PREMIER LEAGUE</option>"+
 	"<option>GERMANY BUNDESLIGA</option>"+
+	"<option>FRANCE LIGUE 1</option>"+		
 	"<option>ITALY SERIE A</option>"+
-	"<option>FRANCE LIGUE 1</option>"+
-	"<option>PORTUGAL PRIMEIRA LIGA</option>"+	
 	"<option>NETHERLANDS EREDIVISIE</option>"+
+	"<option>PORTUGAL PRIMEIRA LIGA</option>"+	
 	"<option>UEFA CHAMPIONS LEAGUE</option>";
 	
 	// select league
