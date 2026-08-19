@@ -1,6 +1,6 @@
 function updateLeague() {
 	let league = getLeague();
-	if (league=="SPAIN PRIMERA DIVISION" || league=="ENGLAND PREMIER LEAGUE" || league=="GERMANY BUNDESLIGA" || league=="ITALY SERIE A") {
+	if (league=="SPAIN PRIMERA DIVISION" || league=="ENGLAND PREMIER LEAGUE" || league=="GERMANY BUNDESLIGA" || league=="ITALY SERIE A" || league=="FRANCE LIGUE 1") {
 		refreshPage();
 	} else {
 		league = localStorage.getItem('league');
